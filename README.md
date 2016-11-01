@@ -31,13 +31,17 @@ Synopsis
 
 stream {
     server {
-        local tftpd = require "resty.tftp.server"
+        listen 127.0.0.1:69 udp;
 
-        local ok, err = tftpd.serve(ngx.var.config_prefix.."/tftp")
+        content_by_lua_block {
+            local tftpd = require "resty.tftp.server"
 
-        if not ok then
-            ngx.log(ngx.ERR, err)
-        end
+            local ok, err = tftpd.serve(ngx.var.config_prefix.."/tftp")
+
+            if not ok then
+                ngx.log(ngx.ERR, err)
+            end
+        }
     }
 }
 ```
