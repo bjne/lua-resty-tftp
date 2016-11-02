@@ -2,7 +2,7 @@ local match = string.match
 local floor = math.floor
 local _C = string.char
 
-local _M = { _version = 0.1 }
+local _M = { _VERSION = 0.1 }
 
 local op = {
     [_C(0,1)] = 'RRQ',  RRQ  = _C(0,1),
@@ -58,7 +58,7 @@ _M.serve = function(path)
 
     local f, err = io.open(file)
     if not f then
-        returl nil, err
+        return nil, err
     end
 
     local function send_data_block(data, block)
