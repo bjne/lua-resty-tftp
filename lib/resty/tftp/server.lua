@@ -13,7 +13,7 @@ local op = {
 }
 
 _M.serve = function(path)
-    local sock = ngx.req.udp_socket()
+    local sock = ngx.req.socket()
     if not sock then
         return ngx.log(ngx.WARN, "no socket")
     end
