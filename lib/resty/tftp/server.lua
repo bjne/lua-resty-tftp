@@ -2,7 +2,7 @@ local match = string.match
 local floor = math.floor
 local _C = string.char
 
-local _M = { _VERSION = 0.1 }
+local _M = { _VERSION = 0.2 }
 
 local op = {
     [_C(0,1)] = 'RRQ',  RRQ  = _C(0,1),
